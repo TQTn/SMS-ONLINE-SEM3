@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace SMS.Controllers
+namespace SMS_Online.Controllers
 {
     public class HomeController : Controller
     {
@@ -13,16 +13,23 @@ namespace SMS.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Login()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Login page.";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Register()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Regis page.";
+
+            return View();
+        }
+
+        public ActionResult Admin()
+        {
+            ViewBag.Message = "Admin page.";
 
             return View();
         }

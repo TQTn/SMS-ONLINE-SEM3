@@ -148,19 +148,19 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>Model1.Context.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Models\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>Model1.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Models\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Models\PersonalDetail.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -182,29 +182,135 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\SMS_online\Bootstrap-SMS.css" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\aos\aos.css" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\aos\aos.js" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap-icons\bootstrap-icons.css" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap-icons\index.html" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap-grid.rtl.css" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap-utilities.css" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap-utilities.min.css" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap.rtl.css" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap.rtl.min.css" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\js\bootstrap.esm.js" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\js\bootstrap.esm.min.js" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\boxicons\css\animations.css" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\boxicons\css\boxicons.css" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\boxicons\css\boxicons.min.css" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\boxicons\css\transformations.css" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\boxicons\fonts\boxicons.svg" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\glightbox\css\glightbox.css" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\glightbox\css\glightbox.min.css" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\glightbox\js\glightbox.js" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\glightbox\js\glightbox.min.js" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\isotope-layout\isotope.pkgd.js" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\isotope-layout\isotope.pkgd.min.js" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\php-email-form\validate.js" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\purecounter\purecounter.js" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\swiper\swiper-bundle.min.css" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\swiper\swiper-bundle.min.js" />
+    <Content Include="Content\SMS_online\js\main.js" />
+    <Content Include="Content\SMS_online\Login\css\material-dashboard.css" />
+    <Content Include="Content\SMS_online\Login\css\material-dashboard.min.css" />
+    <Content Include="Content\SMS_online\Login\css\nucleo-icons.css" />
+    <Content Include="Content\SMS_online\Login\css\nucleo-svg.css" />
+    <Content Include="Content\SMS_online\Login\css\style.css" />
+    <Content Include="Content\SMS_online\Login\fonts\nucleo-icons.svg" />
+    <Content Include="Content\SMS_online\Login\js\bootstrap.min.js" />
+    <Content Include="Content\SMS_online\Login\js\core\bootstrap.bundle.min.js" />
+    <Content Include="Content\SMS_online\Login\js\core\bootstrap.min.js" />
+    <Content Include="Content\SMS_online\Login\js\core\popper.min.js" />
+    <Content Include="Content\SMS_online\Login\js\jquery.min.js" />
+    <Content Include="Content\SMS_online\Login\js\main.js" />
+    <Content Include="Content\SMS_online\Login\js\material-dashboard.js" />
+    <Content Include="Content\SMS_online\Login\js\material-dashboard.min.js" />
+    <Content Include="Content\SMS_online\Login\js\plugins\bootstrap-notify.js" />
+    <Content Include="Content\SMS_online\Login\js\plugins\Chart.extension.js" />
+    <Content Include="Content\SMS_online\Login\js\plugins\chartjs.min.js" />
+    <Content Include="Content\SMS_online\Login\js\plugins\perfect-scrollbar.min.js" />
+    <Content Include="Content\SMS_online\Login\js\plugins\smooth-scrollbar.min.js" />
+    <Content Include="Content\SMS_online\Login\js\plugins\world.js" />
+    <Content Include="Content\SMS_online\Login\js\popper.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\Anh.jpg" />
+    <Content Include="img\Background 1.jpg" />
+    <Content Include="img\Background 2.jpg" />
+    <Content Include="img\bg-login.jpg" />
+    <Content Include="img\Do.jpg" />
+    <Content Include="img\Duy.jpg" />
+    <Content Include="img\Toan.jpg" />
     <Content Include="Models\Model1.Context.tt">
+      <DependentUpon>Model1.edmx</DependentUpon>
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <Content Include="Models\Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
+      <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap-icons\bootstrap-icons.json" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap-icons\fonts\bootstrap-icons.woff" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap-icons\fonts\bootstrap-icons.woff2" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap-utilities.css.map" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap.rtl.css.map" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\css\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\js\bootstrap.esm.js.map" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\js\bootstrap.esm.min.js.map" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\js\bootstrap.js.map" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\boxicons\fonts\boxicons.eot" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\boxicons\fonts\boxicons.ttf" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\boxicons\fonts\boxicons.woff" />
+    <Content Include="Content\SMS_online\Bootstrap-vendor\boxicons\fonts\boxicons.woff2" />
+    <Content Include="Content\SMS_online\Login\css\material-dashboard.css.map" />
+    <Content Include="Content\SMS_online\Login\fonts\nucleo-icons.eot" />
+    <Content Include="Content\SMS_online\Login\fonts\nucleo-icons.ttf" />
+    <Content Include="Content\SMS_online\Login\fonts\nucleo-icons.woff" />
+    <Content Include="Content\SMS_online\Login\fonts\nucleo-icons.woff2" />
+    <Content Include="Content\SMS_online\Login\fonts\nucleo.eot" />
+    <Content Include="Content\SMS_online\Login\fonts\nucleo.ttf" />
+    <Content Include="Content\SMS_online\Login\fonts\nucleo.woff" />
+    <Content Include="Content\SMS_online\Login\fonts\nucleo.woff2" />
+    <Content Include="Content\SMS_online\Login\js\material-dashboard.js.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -230,8 +336,16 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Chat\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EntityDeploy Include="Models\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

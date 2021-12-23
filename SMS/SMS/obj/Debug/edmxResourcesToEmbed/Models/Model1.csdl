@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Database1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="NumberPhone" />
+    </Key>
+    <Property Name="NumberPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Advertisement">
+    <Key>
+      <PropertyRef Name="AdvertisementID" />
+    </Key>
+    <Property Name="AdvertisementID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AdvName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LinkPic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_Advertisement" FromRole="Advertisement" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NumberPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="AdvertisementID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Advertisement" Relationship="Self.FK_Customer_Advertisement" FromRole="Customer" ToRole="Advertisement" />
+    <NavigationProperty Name="Friendlists" Relationship="Self.FK_Friendlist_Customer" FromRole="Customer" ToRole="Friendlist" />
+    <NavigationProperty Name="PersonalDetail" Relationship="Self.FK_PersonalDetails_Customer" FromRole="Customer" ToRole="PersonalDetails" />
+    <NavigationProperty Name="ProfessionalDetail" Relationship="Self.FK_ProfessionalDetails_Customer" FromRole="Customer" ToRole="ProfessionalDetails" />
+  </EntityType>
+  <EntityType Name="Friendlist">
+    <Key>
+      <PropertyRef Name="FriendID" />
+    </Key>
+    <Property Name="FriendID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="CustomerID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_Friendlist_Customer" FromRole="Friendlist" ToRole="Customer" />
+    <NavigationProperty Name="Messengers" Relationship="Self.FK_Messenger_Friendlist" FromRole="Friendlist" ToRole="Messenger" />
+  </EntityType>
+  <EntityType Name="Messenger">
+    <Key>
+      <PropertyRef Name="ChatID" />
+    </Key>
+    <Property Name="ChatID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustomerID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FriendID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Datetime" Type="DateTime" Precision="3" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Friendlist" Relationship="Self.FK_Messenger_Friendlist" FromRole="Messenger" ToRole="Friendlist" />
+    <NavigationProperty Name="Pictures" Relationship="Self.FK_Picture_Messenger" FromRole="Messenger" ToRole="Picture" />
+  </EntityType>
+  <EntityType Name="PersonalDetail">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DOB" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MaritalStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Hobbies" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Likes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cuisines" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Sports" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_PersonalDetails_Customer" FromRole="PersonalDetails" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="Picture">
+    <Key>
+      <PropertyRef Name="Customer_ID" />
+    </Key>
+    <Property Name="Customer_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ChatID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LinkPic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Datetime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Messenger" Relationship="Self.FK_Picture_Messenger" FromRole="Picture" ToRole="Messenger" />
+  </EntityType>
+  <EntityType Name="ProfessionalDetail">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Qualification" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="School" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="College" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Workstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Organization_" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_ProfessionalDetails_Customer" FromRole="ProfessionalDetails" ToRole="Customer" />
+  </EntityType>
+  <Association Name="FK_Customer_Advertisement">
+    <End Role="Advertisement" Type="Self.Advertisement" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Advertisement">
+        <PropertyRef Name="AdvertisementID" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="AdvertisementID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Friendlist_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Friendlist" Type="Self.Friendlist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Friendlist">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonalDetails_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="PersonalDetails" Type="Self.PersonalDetail" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="PersonalDetails">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfessionalDetails_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="ProfessionalDetails" Type="Self.ProfessionalDetail" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="ProfessionalDetails">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Messenger_Friendlist">
+    <End Role="Friendlist" Type="Self.Friendlist" Multiplicity="0..1" />
+    <End Role="Messenger" Type="Self.Messenger" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Friendlist">
+        <PropertyRef Name="FriendID" />
+      </Principal>
+      <Dependent Role="Messenger">
+        <PropertyRef Name="FriendID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Picture_Messenger">
+    <End Role="Messenger" Type="Self.Messenger" Multiplicity="0..1" />
+    <End Role="Picture" Type="Self.Picture" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Messenger">
+        <PropertyRef Name="ChatID" />
+      </Principal>
+      <Dependent Role="Picture">
+        <PropertyRef Name="ChatID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Database1Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="Self.Admin" />
+    <EntitySet Name="Advertisements" EntityType="Self.Advertisement" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Friendlists" EntityType="Self.Friendlist" />
+    <EntitySet Name="Messengers" EntityType="Self.Messenger" />
+    <EntitySet Name="PersonalDetails" EntityType="Self.PersonalDetail" />
+    <EntitySet Name="Pictures" EntityType="Self.Picture" />
+    <EntitySet Name="ProfessionalDetails" EntityType="Self.ProfessionalDetail" />
+    <AssociationSet Name="FK_Customer_Advertisement" Association="Self.FK_Customer_Advertisement">
+      <End Role="Advertisement" EntitySet="Advertisements" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Friendlist_Customer" Association="Self.FK_Friendlist_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Friendlist" EntitySet="Friendlists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonalDetails_Customer" Association="Self.FK_PersonalDetails_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="PersonalDetails" EntitySet="PersonalDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfessionalDetails_Customer" Association="Self.FK_ProfessionalDetails_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="ProfessionalDetails" EntitySet="ProfessionalDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Messenger_Friendlist" Association="Self.FK_Messenger_Friendlist">
+      <End Role="Friendlist" EntitySet="Friendlists" />
+      <End Role="Messenger" EntitySet="Messengers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Picture_Messenger" Association="Self.FK_Picture_Messenger">
+      <End Role="Messenger" EntitySet="Messengers" />
+      <End Role="Picture" EntitySet="Pictures" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
