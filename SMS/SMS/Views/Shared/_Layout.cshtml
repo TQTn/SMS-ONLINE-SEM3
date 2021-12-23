@@ -3,40 +3,89 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
+
+    <!-- Title -->
+    <title>@ViewBag.Title - SMS</title>
+    @Styles.Render("~/Content/content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    <!-- Favicons -->
+    @Styles.Render("~/Content/")
+    @Styles.Render("~/Content/")
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Vendor CSS Files -->
+    @Styles.Render("~/Content/SMS_online/Bootstrap-vendor/aos/aos.css")
+    @Styles.Render("~/Content/SMS_online/Bootstrap-vendor/bootstrap/css/bootstrap.min.css")
+    @Styles.Render("~/Content/SMS_online/Bootstrap-vendor/bootstrap-icons/bootstrap-icons.css")
+    @Styles.Render("~/Content/SMS_online/Bootstrap-vendor/boxicons/css/boxicons.min.css")
+    @Styles.Render("~/Content/SMS_online/Bootstrap-vendor/glightbox/css/glightbox.min.css")
+    @Styles.Render("~/Content/SMS_online/Bootstrap-vendor/swiper/swiper-bundle.min.css")
+
+    <!-- Template Main CSS File -->
+    @Styles.Render("~/Content/SMS_online/Bootstrap-SMS.css")
+ 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Logo page -->
+            <div id="logo">
+                <a href="index.html"><img src="/img/logo.png" alt=""></a>
+                <!-- Uncomment below if you prefer to use a text logo -->
+                <h1><a href="index.html">SMS-OL</a></h1>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+            <!-- Navbar header -->
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+                    <li><a class="nav-link scrollto" href="#about">About</a></li>
+                    <li><a class="nav-link scrollto" href="#feature">Feature</a></li>
+                    <li><a class="nav-link scrollto" href="#help">Help</a></li>
+                    <li><a class="nav-link scrollto" href="#team">Team</a></li>
+                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+                    <li class="dropdown" >
+                        @Html.ActionLink("Login", "Login")
+                        <ul>                            
+                            <li>@Html.ActionLink("Register", "Register")</li>                            
+                        </ul>
+                    </li>
                 </ul>
-            </div>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+            <!-- End navbar header -->
         </div>
-    </div>
+    </header>
+    <!-- End Header -->    
+
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - GROUP 1</p>
         </footer>
     </div>
 
+    <!-- Vendor JS Files -->
+    @Scripts.Render("~/Content/SMS_online/Bootstrap-vendor/aos/aos.js")
+    @Scripts.Render("~/Content/SMS_online/Bootstrap-vendor/purecounter/purecounter.js")
+    @Scripts.Render("~/Content/SMS_online/Bootstrap-vendor/bootstrap/js/bootstrap.bundle.min.js")
+    @Scripts.Render("~/Content/SMS_online/Bootstrap-vendor/glightbox/js/glightbox.min.js")
+    @Scripts.Render("~/Content/SMS_online/Bootstrap-vendor/isotope-layout/isotope.pkgd.min.js")
+    @Scripts.Render("~/Content/SMS_online/Bootstrap-vendor/swiper/swiper-bundle.min.js")
+    @Scripts.Render("~/Content/SMS_online/Bootstrap-vendor/php-email-form/validate.js")
+        
+    <!-- Template Main JS File -->
+    @Scripts.Render("~/Content/SMS_online/js/main.js")
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    
 </body>
 </html>
