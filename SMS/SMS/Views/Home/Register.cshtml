@@ -83,31 +83,41 @@
                             </div>
                             <!-- Form Sign in -->
                             <div class="card-body">
-                                <form role="form" class="text-start">
-                                    <div class="input-group input-group-outline my-3">                                        
-                                        <input type="tel" class="form-control" placeholder="Phone Number">
-                                    </div>
-                                    <div class="input-group input-group-outline my-3">                                        
-                                        <input type="text" class="form-control" placeholder="User name">
+
+                                @using (Html.BeginForm("Register", "Home", FormMethod.Post, new { @class = "text-start" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                <div class="input-group input-group-outline my-3">
+                                    @Html.HiddenFor(m => m.CustomerID)
+                                    @Html.TextBoxFor(model => model.NumberPhone, "", new { @class = "form-control", @placeholder = "Phone Number" })
+
+                                </div>
+                                    <div class="input-group input-group-outline my-3">
+                                        @Html.TextBoxFor(model => model.UserName, "", new { @class = "form-control", @placeholder = "User name" })
+
                                     </div>
                                     <div class="input-group input-group-outline mb-3">
-                                        <input type="password" class="form-control" placeholder="Password">
+                                        @Html.TextBoxFor(model => model.Password, "", new { @class = "form-control", @placeholder = "Password", Textmode = "Password" })
+
                                     </div>
                                     <div class="input-group input-group-outline mb-3">
-                                        <input type="password" class="form-control" placeholder="Password confirm">
+
+                                        @Html.TextBoxFor(model => model.Password, "", new { @class = "form-control", @placeholder = "Password confirm", Textmode = "Password" })
+
                                     </div>
-                                    <div class="form-check form-switch d-flex align-items-center mb-3">
-                                        <input class="form-check-input" type="checkbox" id="rememberMe">
-                                        <label class="form-check-label mb-0 ms-2" for="rememberMe">Agree all information</label>
-                                    </div>
+
                                     <div class="text-center">
-                                        <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2">Sign up</button>
+                                        <input type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2" value="Sign up" />
+
                                     </div>
                                     <p class="mt-4 text-sm text-center">
                                         Have an account ?
                                         <a href="../pages/sign-up.html" class="text-primary text-gradient font-weight-bold">@Html.ActionLink("Sign in", "Login")</a>
                                     </p>
-                                </form>
+                                }
+
+
+
                             </div><!-- End form Sign in -->
                         </div>
                     </div>

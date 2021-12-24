@@ -26,10 +26,10 @@ namespace SMS.Models
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public string CustomerID { get; set; }
         [Required]
-        [RegularExpression(@"^(\+[0-9]{9})$")]
+      /*  [RegularExpression(@"^(\+[0-9]{9})$")]*/
         public string NumberPhone { get; set; }
         [Required]
-        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}$")]
+        /*[RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}$")]*/
         public string Password { get; set; }
         [Required]
         [StringLength(50, MinimumLength = 3)]
