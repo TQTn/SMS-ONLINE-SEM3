@@ -11,7 +11,9 @@ namespace SMS.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class Customer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,10 +21,18 @@ namespace SMS.Models
         {
             this.Friendlists = new HashSet<Friendlist>();
         }
-    
+
+        [Key, Column(Order = 1)]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public string CustomerID { get; set; }
+        [Required]
+        [RegularExpression(@"^(\+[0-9]{9})$")]
         public string NumberPhone { get; set; }
+        [Required]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}$")]
         public string Password { get; set; }
+        [Required]
+        [StringLength(50, MinimumLength = 3)]
         public string UserName { get; set; }
         public Nullable<bool> Status { get; set; }
         public string AdvertisementID { get; set; }
