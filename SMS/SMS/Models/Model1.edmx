@@ -1,0 +1,532 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="NumberPhone" />
+          </Key>
+          <Property Name="NumberPhone" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Advertisement">
+          <Key>
+            <PropertyRef Name="AdvertisementID" />
+          </Key>
+          <Property Name="AdvertisementID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Brand" Type="varchar" MaxLength="50" />
+          <Property Name="AdvName" Type="varchar" MaxLength="50" />
+          <Property Name="LinkPic" Type="varchar(max)" />
+          <Property Name="Text" Type="text" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NumberPhone" Type="varchar" MaxLength="15" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="AdvertisementID" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Friendlist">
+          <Key>
+            <PropertyRef Name="FriendID" />
+          </Key>
+          <Property Name="FriendID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="CustomerID" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Messenger">
+          <Key>
+            <PropertyRef Name="ChatID" />
+          </Key>
+          <Property Name="ChatID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CustomerID" Type="varchar" MaxLength="50" />
+          <Property Name="FriendID" Type="varchar" MaxLength="50" />
+          <Property Name="Datetime" Type="datetime" />
+          <Property Name="Text" Type="text" />
+        </EntityType>
+        <EntityType Name="PersonalDetails">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Gender" Type="varchar" MaxLength="50" />
+          <Property Name="DOB" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+          <Property Name="MaritalStatus" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Hobbies" Type="varchar" MaxLength="50" />
+          <Property Name="Likes" Type="varchar" MaxLength="50" />
+          <Property Name="Cuisines" Type="varchar" MaxLength="50" />
+          <Property Name="Sports" Type="varchar" MaxLength="50" />
+          <Property Name="Image" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Picture">
+          <Key>
+            <PropertyRef Name="Customer ID" />
+          </Key>
+          <Property Name="Customer ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ChatID" Type="varchar" MaxLength="50" />
+          <Property Name="LinkPic" Type="varchar(max)" />
+          <Property Name="Datetime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ProfessionalDetails">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Qualification" Type="varchar" MaxLength="50" />
+          <Property Name="School" Type="varchar" MaxLength="50" />
+          <Property Name="College" Type="varchar" MaxLength="50" />
+          <Property Name="Workstatus" Type="varchar" MaxLength="50" />
+          <Property Name="Organization(" Type="varchar" MaxLength="50" />
+          <Property Name="Designation" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Customer_Advertisement">
+          <End Role="Advertisement" Type="Self.Advertisement" Multiplicity="0..1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advertisement">
+              <PropertyRef Name="AdvertisementID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="AdvertisementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Friendlist_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Friendlist" Type="Self.Friendlist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Friendlist">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Messenger_Friendlist">
+          <End Role="Friendlist" Type="Self.Friendlist" Multiplicity="0..1" />
+          <End Role="Messenger" Type="Self.Messenger" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Friendlist">
+              <PropertyRef Name="FriendID" />
+            </Principal>
+            <Dependent Role="Messenger">
+              <PropertyRef Name="FriendID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonalDetails_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="PersonalDetails" Type="Self.PersonalDetails" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="PersonalDetails">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Picture_Messenger">
+          <End Role="Messenger" Type="Self.Messenger" Multiplicity="0..1" />
+          <End Role="Picture" Type="Self.Picture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Messenger">
+              <PropertyRef Name="ChatID" />
+            </Principal>
+            <Dependent Role="Picture">
+              <PropertyRef Name="ChatID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfessionalDetails_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="ProfessionalDetails" Type="Self.ProfessionalDetails" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="ProfessionalDetails">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Database1ModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Advertisement" EntityType="Self.Advertisement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Friendlist" EntityType="Self.Friendlist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Messenger" EntityType="Self.Messenger" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PersonalDetails" EntityType="Self.PersonalDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Picture" EntityType="Self.Picture" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfessionalDetails" EntityType="Self.ProfessionalDetails" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Customer_Advertisement" Association="Self.FK_Customer_Advertisement">
+            <End Role="Advertisement" EntitySet="Advertisement" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Friendlist_Customer" Association="Self.FK_Friendlist_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Friendlist" EntitySet="Friendlist" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Messenger_Friendlist" Association="Self.FK_Messenger_Friendlist">
+            <End Role="Friendlist" EntitySet="Friendlist" />
+            <End Role="Messenger" EntitySet="Messenger" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonalDetails_Customer" Association="Self.FK_PersonalDetails_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="PersonalDetails" EntitySet="PersonalDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Picture_Messenger" Association="Self.FK_Picture_Messenger">
+            <End Role="Messenger" EntitySet="Messenger" />
+            <End Role="Picture" EntitySet="Picture" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfessionalDetails_Customer" Association="Self.FK_ProfessionalDetails_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="ProfessionalDetails" EntitySet="ProfessionalDetails" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Database1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="NumberPhone" />
+          </Key>
+          <Property Name="NumberPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Advertisement">
+          <Key>
+            <PropertyRef Name="AdvertisementID" />
+          </Key>
+          <Property Name="AdvertisementID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AdvName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LinkPic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_Advertisement" FromRole="Advertisement" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NumberPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="AdvertisementID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Advertisement" Relationship="Self.FK_Customer_Advertisement" FromRole="Customer" ToRole="Advertisement" />
+          <NavigationProperty Name="Friendlists" Relationship="Self.FK_Friendlist_Customer" FromRole="Customer" ToRole="Friendlist" />
+          <NavigationProperty Name="PersonalDetail" Relationship="Self.FK_PersonalDetails_Customer" FromRole="Customer" ToRole="PersonalDetails" />
+          <NavigationProperty Name="ProfessionalDetail" Relationship="Self.FK_ProfessionalDetails_Customer" FromRole="Customer" ToRole="ProfessionalDetails" />
+        </EntityType>
+        <EntityType Name="Friendlist">
+          <Key>
+            <PropertyRef Name="FriendID" />
+          </Key>
+          <Property Name="FriendID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="CustomerID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Friendlist_Customer" FromRole="Friendlist" ToRole="Customer" />
+          <NavigationProperty Name="Messengers" Relationship="Self.FK_Messenger_Friendlist" FromRole="Friendlist" ToRole="Messenger" />
+        </EntityType>
+        <EntityType Name="Messenger">
+          <Key>
+            <PropertyRef Name="ChatID" />
+          </Key>
+          <Property Name="ChatID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FriendID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Datetime" Type="DateTime" Precision="3" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Friendlist" Relationship="Self.FK_Messenger_Friendlist" FromRole="Messenger" ToRole="Friendlist" />
+          <NavigationProperty Name="Pictures" Relationship="Self.FK_Picture_Messenger" FromRole="Messenger" ToRole="Picture" />
+        </EntityType>
+        <EntityType Name="PersonalDetail">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MaritalStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Hobbies" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Likes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Cuisines" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sports" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_PersonalDetails_Customer" FromRole="PersonalDetails" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Picture">
+          <Key>
+            <PropertyRef Name="Customer_ID" />
+          </Key>
+          <Property Name="Customer_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ChatID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LinkPic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Datetime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Messenger" Relationship="Self.FK_Picture_Messenger" FromRole="Picture" ToRole="Messenger" />
+        </EntityType>
+        <EntityType Name="ProfessionalDetail">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Qualification" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="School" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="College" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Workstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Organization_" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_ProfessionalDetails_Customer" FromRole="ProfessionalDetails" ToRole="Customer" />
+        </EntityType>
+        <Association Name="FK_Customer_Advertisement">
+          <End Role="Advertisement" Type="Self.Advertisement" Multiplicity="0..1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advertisement">
+              <PropertyRef Name="AdvertisementID" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="AdvertisementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Friendlist_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Friendlist" Type="Self.Friendlist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Friendlist">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PersonalDetails_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="PersonalDetails" Type="Self.PersonalDetail" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="PersonalDetails">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProfessionalDetails_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="ProfessionalDetails" Type="Self.ProfessionalDetail" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="ProfessionalDetails">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Messenger_Friendlist">
+          <End Role="Friendlist" Type="Self.Friendlist" Multiplicity="0..1" />
+          <End Role="Messenger" Type="Self.Messenger" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Friendlist">
+              <PropertyRef Name="FriendID" />
+            </Principal>
+            <Dependent Role="Messenger">
+              <PropertyRef Name="FriendID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Picture_Messenger">
+          <End Role="Messenger" Type="Self.Messenger" Multiplicity="0..1" />
+          <End Role="Picture" Type="Self.Picture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Messenger">
+              <PropertyRef Name="ChatID" />
+            </Principal>
+            <Dependent Role="Picture">
+              <PropertyRef Name="ChatID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Database1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="Advertisements" EntityType="Self.Advertisement" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Friendlists" EntityType="Self.Friendlist" />
+          <EntitySet Name="Messengers" EntityType="Self.Messenger" />
+          <EntitySet Name="PersonalDetails" EntityType="Self.PersonalDetail" />
+          <EntitySet Name="Pictures" EntityType="Self.Picture" />
+          <EntitySet Name="ProfessionalDetails" EntityType="Self.ProfessionalDetail" />
+          <AssociationSet Name="FK_Customer_Advertisement" Association="Self.FK_Customer_Advertisement">
+            <End Role="Advertisement" EntitySet="Advertisements" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Friendlist_Customer" Association="Self.FK_Friendlist_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Friendlist" EntitySet="Friendlists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PersonalDetails_Customer" Association="Self.FK_PersonalDetails_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="PersonalDetails" EntitySet="PersonalDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProfessionalDetails_Customer" Association="Self.FK_ProfessionalDetails_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="ProfessionalDetails" EntitySet="ProfessionalDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Messenger_Friendlist" Association="Self.FK_Messenger_Friendlist">
+            <End Role="Friendlist" EntitySet="Friendlists" />
+            <End Role="Messenger" EntitySet="Messengers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Picture_Messenger" Association="Self.FK_Picture_Messenger">
+            <End Role="Messenger" EntitySet="Messengers" />
+            <End Role="Picture" EntitySet="Pictures" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="Database1Model.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="NumberPhone" ColumnName="NumberPhone" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Advertisements">
+            <EntityTypeMapping TypeName="Database1Model.Advertisement">
+              <MappingFragment StoreEntitySet="Advertisement">
+                <ScalarProperty Name="AdvertisementID" ColumnName="AdvertisementID" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="AdvName" ColumnName="AdvName" />
+                <ScalarProperty Name="LinkPic" ColumnName="LinkPic" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="Database1Model.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="NumberPhone" ColumnName="NumberPhone" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="AdvertisementID" ColumnName="AdvertisementID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Friendlists">
+            <EntityTypeMapping TypeName="Database1Model.Friendlist">
+              <MappingFragment StoreEntitySet="Friendlist">
+                <ScalarProperty Name="FriendID" ColumnName="FriendID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messengers">
+            <EntityTypeMapping TypeName="Database1Model.Messenger">
+              <MappingFragment StoreEntitySet="Messenger">
+                <ScalarProperty Name="ChatID" ColumnName="ChatID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="FriendID" ColumnName="FriendID" />
+                <ScalarProperty Name="Datetime" ColumnName="Datetime" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonalDetails">
+            <EntityTypeMapping TypeName="Database1Model.PersonalDetail">
+              <MappingFragment StoreEntitySet="PersonalDetails">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Hobbies" ColumnName="Hobbies" />
+                <ScalarProperty Name="Likes" ColumnName="Likes" />
+                <ScalarProperty Name="Cuisines" ColumnName="Cuisines" />
+                <ScalarProperty Name="Sports" ColumnName="Sports" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pictures">
+            <EntityTypeMapping TypeName="Database1Model.Picture">
+              <MappingFragment StoreEntitySet="Picture">
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer ID" />
+                <ScalarProperty Name="ChatID" ColumnName="ChatID" />
+                <ScalarProperty Name="LinkPic" ColumnName="LinkPic" />
+                <ScalarProperty Name="Datetime" ColumnName="Datetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfessionalDetails">
+            <EntityTypeMapping TypeName="Database1Model.ProfessionalDetail">
+              <MappingFragment StoreEntitySet="ProfessionalDetails">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+                <ScalarProperty Name="School" ColumnName="School" />
+                <ScalarProperty Name="College" ColumnName="College" />
+                <ScalarProperty Name="Workstatus" ColumnName="Workstatus" />
+                <ScalarProperty Name="Organization_" ColumnName="Organization(" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
