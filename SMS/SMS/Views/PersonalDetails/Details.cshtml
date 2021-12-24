@@ -1,0 +1,82 @@
+﻿@model SMS.Models.PersonalDetail
+
+@{
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+    Layout = null;
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <div>
+        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalToggleLabel">Persional Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <table class="table table-success table-striped">
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.Name):</th>
+                            <td>@Html.DisplayFor(model => model.Name)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.Gender):</th>
+                            <td>@Html.DisplayFor(model => model.Gender)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.DOB):</th>
+                            <td>@Html.DisplayFor(model => model.DOB)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.Address):</th>
+                            <td>@Html.DisplayFor(model => model.Address)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.MaritalStatus):</th>
+                            <td>@Html.DisplayFor(model => model.MaritalStatus)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row"> @Html.DisplayNameFor(model => model.Email):</th>
+                            <td>@Html.DisplayFor(model => model.Email)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.Hobbies):</th>
+                            <td>@Html.DisplayFor(model => model.Hobbies)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.Likes):</th>
+                            <td>@Html.DisplayFor(model => model.Likes)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.Cuisines):</th>
+                            <td>@Html.DisplayFor(model => model.Cuisines)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.Sports):</th>
+                            <td>@Html.DisplayFor(model => model.Sports)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.Image):</th>
+                            <td>@Html.DisplayFor(model => model.Image)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">@Html.DisplayNameFor(model => model.Customer.NumberPhone):</th>
+                            <td>@Html.DisplayFor(model => model.Customer.NumberPhone)</td>
+                        </tr>
+                    </table>
+                    <div class="modal-footer">
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerID })
+                        @Html.ActionLink("Back to List", "Index")
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">See personal details</a>
+    </div>
+

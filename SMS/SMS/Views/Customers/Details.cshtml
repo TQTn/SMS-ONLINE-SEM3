@@ -1,0 +1,79 @@
+﻿@model SMS.Models.Customer
+
+@{
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    Layout = null;
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalToggleLabel">Persional Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <table class="table table-success table-striped">
+                    <tr>
+                        <th scope="row">@Html.DisplayNameFor(model => model.UserName):</th>
+                        <td>@Html.DisplayFor(model => model.UserName)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"> @Html.DisplayNameFor(model => model.NumberPhone):</th>
+                        <td>@Html.DisplayFor(model => model.NumberPhone)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Html.DisplayNameFor(model => model.Password):</th>
+                        <td>@Html.DisplayFor(model => model.Password)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Html.DisplayNameFor(model => model.Status):</th>
+                        <td>@Html.DisplayFor(model => model.Status)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Html.DisplayNameFor(model => model.Advertisement.Brand):</th>
+                        <td>@Html.DisplayFor(model => model.Advertisement.Brand)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"> @Html.DisplayNameFor(model => model.PersonalDetail.Name):</th>
+                        <td>@Html.DisplayFor(model => model.PersonalDetail.Name)</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">@Html.DisplayNameFor(model => model.ProfessionalDetail.Qualification):</th>
+                        <td>@Html.DisplayFor(model => model.ProfessionalDetail.Qualification)</td>
+                    </tr>
+                </table>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Open second modal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalToggleLabel2">Modal 2</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Hide this modal and show the first with the button below.
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Back to first</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a>
+    
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
