@@ -97,13 +97,10 @@
 
                                     </div>
                                     <div class="input-group input-group-outline mb-3">
-                                        @Html.TextBoxFor(model => model.Password, "", new { @class = "form-control", @placeholder = "Password", Textmode = "Password" })
-
+                                        @Html.EditorFor(model => model.Password, "", new { htmlAttributes = new { type = "password", @class = "form-control", @placeholder = "Password", Textmode = "Password" } })
                                     </div>
                                     <div class="input-group input-group-outline mb-3">
-
-                                        @Html.TextBoxFor(model => model.Password, "", new { @class = "form-control", @placeholder = "Password confirm", Textmode = "Password" })
-
+                                        @Html.EditorFor(model => model.Password, "", new { htmlAttributes = new { type = "password", @class = "form-control", @placeholder = "Password confirm", Textmode = "Password" } })
                                     </div>
 
                                     <div class="text-center">
