@@ -186,7 +186,7 @@
         <!-- Add new user -->
         <div class="container-fluid py-4">
 
-            <h3>Are you sure you want to delete this?</h3>
+            <h3>Are you sure you want to delete this user ?</h3>
             <div>
                 
                 <hr />
@@ -195,15 +195,15 @@
                         @Html.DisplayNameFor(model => model.NumberPhone)
                     </dt>
 
-                    <dd>
-                        @Html.DisplayFor(model => model.NumberPhone, new { htmlAttributes = new { @class = "form-control", style = "border-style: solid; width: 200px; padding-left: 10px" } })
+                    <dd style = "border-style: solid; width: 200px; padding-left: 10px; color: black" class="border-radius-lg">
+                        @Html.DisplayFor(model => model.NumberPhone)
                     </dd>
 
                     <dt style = "font-weight: bold; font-size: 20px; color: black; padding: 10px 10px 0px 0px">
                         @Html.DisplayNameFor(model => model.Password)
                     </dt>
 
-                    <dd>
+                    <dd style = "border-style: solid; width: 200px; padding-left: 10px; color: black" class="border-radius-lg">
                         @Html.DisplayFor(model => model.Password)
                     </dd>
 
@@ -211,7 +211,7 @@
                         @Html.DisplayNameFor(model => model.UserName)
                     </dt>
 
-                    <dd>
+                    <dd style = "border-style: solid; width: 200px; padding-left: 10px; color: black" class="border-radius-lg">
                         @Html.DisplayFor(model => model.UserName)
                     </dd>
 
@@ -219,7 +219,7 @@
                         @Html.DisplayNameFor(model => model.Status)
                     </dt>
 
-                    <dd>
+                    <dd style = "border-style: solid; width: 200px; padding-left: 10px; color: black" class="border-radius-lg">
                         @Html.DisplayFor(model => model.Status)
                     </dd>
 
@@ -227,7 +227,7 @@
                         @Html.DisplayNameFor(model => model.Advertisement.Brand)
                     </dt>
 
-                    <dd>
+                    <dd style = "border-style: solid; width: 200px; padding-left: 10px; color: black" class="border-radius-lg">
                         @Html.DisplayFor(model => model.Advertisement.Brand)
                     </dd>
 
@@ -235,7 +235,7 @@
                         @Html.DisplayNameFor(model => model.PersonalDetail.Name)
                     </dt>
 
-                    <dd>
+                    <dd style = "border-style: solid; width: 200px; padding-left: 10px; color: black" class="border-radius-lg">
                         @Html.DisplayFor(model => model.PersonalDetail.Name)
                     </dd>
 
@@ -243,7 +243,7 @@
                         @Html.DisplayNameFor(model => model.ProfessionalDetail.Qualification)
                     </dt>
 
-                    <dd>
+                    <dd style = "border-style: solid; width: 200px; padding-left: 10px; color: black" class="border-radius-lg">
                         @Html.DisplayFor(model => model.ProfessionalDetail.Qualification)
                     </dd>
 
