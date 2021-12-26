@@ -185,66 +185,43 @@
 
         <!-- Add new user -->
         <div class="container-fluid py-4">
-
-            <h3>Are you sure you want to delete this user ?</h3>
+            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">Are you sure you want to delete this user ?</h6>
+            </div>            
             <div>
-                
+
                 <hr />
                 <dl class="dl-horizontal">
-                    <dt style = "font-weight: bold; font-size: 20px; color: black; padding: 10px 10px 0px 0px">
+                    <dt style="font-weight: bold; font-size: 20px; color: black; padding: 10px 10px 0px 0px">
                         @Html.DisplayNameFor(model => model.NumberPhone)
                     </dt>
 
-                    <dd style = "border-style: solid; width: 200px; padding-left: 10px; color: black" class="border-radius-lg">
+                    <dd style="border-style: solid; width: 200px; padding-left: 10px; color: black" class="border-radius-lg">
                         @Html.DisplayFor(model => model.NumberPhone)
                     </dd>
 
-                    <dt style = "font-weight: bold; font-size: 20px; color: black; padding: 10px 10px 0px 0px">
+                    <dt style="font-weight: bold; font-size: 20px; color: black; padding: 10px 10px 0px 0px">
                         @Html.DisplayNameFor(model => model.Password)
                     </dt>
 
-                    <dd style = "border-style: solid; width: 200px; padding-left: 10px; color: black" class="border-radius-lg">
+                    <dd style="border-style: solid; width: 200px; padding-left: 10px; color: black" class="border-radius-lg">
                         @Html.DisplayFor(model => model.Password)
                     </dd>
 
-                    <dt style = "font-weight: bold; font-size: 20px; color: black; padding: 10px 10px 0px 0px">
+                    <dt style="font-weight: bold; font-size: 20px; color: black; padding: 10px 10px 0px 0px">
                         @Html.DisplayNameFor(model => model.UserName)
                     </dt>
 
-                    <dd style = "border-style: solid; width: 200px; padding-left: 10px; color: black" class="border-radius-lg">
+                    <dd style="border-style: solid; width: 200px; padding-left: 10px; color: black" class="border-radius-lg">
                         @Html.DisplayFor(model => model.UserName)
                     </dd>
 
-                    <dt style = "font-weight: bold; font-size: 20px; color: black; padding: 10px 10px 0px 0px">
+                    <dt style="font-weight: bold; font-size: 20px; color: black; padding: 10px 10px 0px 0px">
                         @Html.DisplayNameFor(model => model.Status)
                     </dt>
 
-                    <dd style = "border-style: solid; width: 200px; padding-left: 10px; color: black" class="border-radius-lg">
+                    <dd style="border-style: solid; width: fit-content; color: black" class="border-radius-lg">
                         @Html.DisplayFor(model => model.Status)
-                    </dd>
-
-                    <dt style = "font-weight: bold; font-size: 20px; color: black; padding: 10px 10px 0px 0px">
-                        @Html.DisplayNameFor(model => model.Advertisement.Brand)
-                    </dt>
-
-                    <dd style = "border-style: solid; width: 200px; padding-left: 10px; color: black" class="border-radius-lg">
-                        @Html.DisplayFor(model => model.Advertisement.Brand)
-                    </dd>
-
-                    <dt style = "font-weight: bold; font-size: 20px; color: black; padding: 10px 10px 0px 0px">
-                        @Html.DisplayNameFor(model => model.PersonalDetail.Name)
-                    </dt>
-
-                    <dd style = "border-style: solid; width: 200px; padding-left: 10px; color: black" class="border-radius-lg">
-                        @Html.DisplayFor(model => model.PersonalDetail.Name)
-                    </dd>
-
-                    <dt style = "font-weight: bold; font-size: 20px; color: black; padding: 10px 10px 0px 0px">
-                        @Html.DisplayNameFor(model => model.ProfessionalDetail.Qualification)
-                    </dt>
-
-                    <dd style = "border-style: solid; width: 200px; padding-left: 10px; color: black" class="border-radius-lg">
-                        @Html.DisplayFor(model => model.ProfessionalDetail.Qualification)
                     </dd>
 
                 </dl>
@@ -253,13 +230,13 @@
                 {
                     @Html.AntiForgeryToken()
 
-            <div class="form-actions no-color">                
-                <input type="submit" value="Delete" class="btn btn-default bg-gradient-primary shadow-primary border-radius-lg" style="font-weight: bold; background-color: #0dcaf0; width: 120px; text-align: center"/> 
-                
-                <p style="font-weight: bold; background-color: #0dcaf0; width: 120px; text-align: center" class="bg-gradient-primary shadow-primary border-radius-lg">
-                    @Html.ActionLink("Back to list", "Index", "Admin", null, new { @class = "text-white" })
-                </p>
-            </div>
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Delete" class="btn btn-default bg-gradient-primary shadow-primary border-radius-lg" style="font-weight: bold; background-color: #0dcaf0; width: 120px; text-align: center" />
+
+                        <p style="font-weight: bold; background-color: #0dcaf0; width: 120px; text-align: center" class="bg-gradient-primary shadow-primary border-radius-lg">
+                            @Html.ActionLink("Back to list", "Index", "Admin", null, new { @class = "text-white" })
+                        </p>
+                    </div>
                 }
             </div>
 
