@@ -310,7 +310,7 @@ svg {
 table {
     caption-side: bottom;
     border-collapse: collapse;
-}
+}   
 
 caption {
     padding-top: 0.5rem;
@@ -10028,7 +10028,7 @@ fieldset:disabled .btn {
 }
 
 .text-secondary {
-    color: #7b809a !important;
+    color: #002af9 !important;
 }
 
 .text-success {
@@ -25025,7 +25025,7 @@ p, .p {
 }
 
 .text-xxs {
-    font-size: 0.65rem !important;
+    font-size: 0.9rem !important;
 }
 
 p {

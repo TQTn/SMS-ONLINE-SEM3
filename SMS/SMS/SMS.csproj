@@ -261,6 +261,7 @@
     <Content Include="img\bg-login.jpg" />
     <Content Include="img\Do.jpg" />
     <Content Include="img\Duy.jpg" />
+    <Content Include="img\logo-ct.png" />
     <Content Include="img\Toan.jpg" />
     <Content Include="Models\Model1.Context.tt">
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -387,6 +388,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

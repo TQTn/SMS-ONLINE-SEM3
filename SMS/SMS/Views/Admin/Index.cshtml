@@ -30,18 +30,19 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
 
     <!-- CSS Files -->
-    @Styles.Render("~/Content/SMS_online/Login/css/material-dashboard.css?v=3.0.0")
+    
+    <link href="~/Content/SMS_online/Login/css/material-dashboard.css" rel="stylesheet" />
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
     <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark" id="sidenav-main">
         <div class="sidenav-header">
             <!-- Admin Navbar -->
-            <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i> 
-                <span class="navbar-brand m-0 ms-1">
-                    <img src="~/img/logo-ct.png" class="navbar-brand-img h-100" alt="main_logo">
-                    @Html.ActionLink("ADMIN", "Index", "Admin", null, new { @class = "font-weight-bold text-white"})
-                </span>  
+            <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+            <span class="navbar-brand m-0 ms-1">
+                <img src="~/img/logo-ct.png" class="navbar-brand-img h-100" alt="main_logo">
+                @Html.ActionLink("ADMIN", "Index", "Admin", null, new { @class = "font-weight-bold text-white" })
+            </span>
         </div>
         <hr class="horizontal light mt-0 mb-2">
         <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
@@ -49,7 +50,7 @@
                 <!-- Manage Service -->
                 <li class="nav-item mt-3">
                     <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Manage Service</h6>
-                </li>    
+                </li>
                 <!-- Service Navbar -->
                 <li class="nav-item">
                     @Html.ActionLink("Service", "Create", "Admin", null, new { @class = "nav-link text-white active bg-gradient-primary" })
@@ -182,10 +183,11 @@
             </div>
         </nav>
         <!-- End Navbar -->
+
         <!-- Table Manage user -->
         <div class="container-fluid py-4">
-            <p style="font-weight: bold; background-color: #0dcaf0; width: 120px; text-align: center" class="bg-gradient-primary shadow-primary border-radius-lg">                
-                @Html.ActionLink("Create New", "Create", "Admin", null, new { @class= "text-white"})
+            <p style="font-weight: bold; background-color: #0dcaf0; width: 120px; text-align: center" class="bg-gradient-primary shadow-primary border-radius-lg">
+                @Html.ActionLink("Create New", "Create", "Admin", null, new { @class = "text-white" })
             </p>
             <div class="row">
                 <div class="col-12">
@@ -199,68 +201,69 @@
                             <div class="table-responsive p-0">
                                 <table class="table align-items-center mb-0">
                                     <!-- Header table -->
-                                    <thead>
-                                        <tr>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">@Html.DisplayNameFor(model => model.NumberPhone)</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">@Html.DisplayNameFor(model => model.UserName)</th>
-                                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">@Html.DisplayNameFor(model => model.Password)</th>
-                                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">@Html.DisplayNameFor(model => model.Status)</th>
-                                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">@Html.DisplayNameFor(model => model.PersonalDetail.Name)</th>
-                                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">@Html.DisplayNameFor(model => model.Advertisement.Brand)</th>
-                                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">@Html.DisplayNameFor(model => model.ProfessionalDetail.Qualification)</th>
-                                            <th class="text-secondary opacity-7"></th>
-                                        </tr>
-                                    </thead>
+
+                                    <tr>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">@Html.DisplayNameFor(model => model.NumberPhone)</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">@Html.DisplayNameFor(model => model.UserName)</th>
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">@Html.DisplayNameFor(model => model.Password)</th>
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">@Html.DisplayNameFor(model => model.Status)</th>
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">@Html.DisplayNameFor(model => model.PersonalDetail.Name)</th>
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">@Html.DisplayNameFor(model => model.Advertisement.Brand)</th>
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">@Html.DisplayNameFor(model => model.ProfessionalDetail.Qualification)</th>
+                                        <th class="text-secondary opacity-7"></th>
+                                    </tr>
+
 
                                     <!-- Data -->
-                                    <tbody>
-                                        @foreach (var item in Model)
-                                        {
-                                            <tr>
-                                                <!-- Phone number -->
-                                                <td>
-                                                    <div class="d-flex px-2 py-1">
-                                                        <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm">@Html.DisplayFor(modelItem => item.NumberPhone)</h6>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <!-- User name -->
-                                                <td>
-                                                    <p class="badge badge-sm bg-gradient-success">@Html.DisplayFor(modelItem => item.UserName)</p>
-                                                </td>
-                                                <!-- Password -->
-                                                <td class="align-middle text-center">
-                                                    <span class="text-xs font-weight-bold mb-0">@Html.DisplayFor(modelItem => item.Password)</span>
-                                                </td>
-                                                <!-- Status -->
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary text-xs font-weight-bold">@Html.DisplayFor(modelItem => item.Status)</span>
-                                                </td>
-                                                <!-- Name -->
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary text-xs font-weight-bold">@Html.DisplayFor(modelItem => item.PersonalDetail.Name)</span>
-                                                </td>
-                                                <!-- Brand -->
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary text-xs font-weight-bold">@Html.DisplayFor(modelItem => item.Advertisement.Brand)</span>
-                                                </td>
-                                                <!-- Qualification -->
-                                                <td class="align-middle text-center">
-                                                    <span class="text-secondary text-xs font-weight-bold">@Html.DisplayFor(modelItem => item.ProfessionalDetail.Qualification)</span>
-                                                </td>
-                                                <!-- CRUD -->
-                                                <td class="align-middle">
-                                                    <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                                                        @Html.ActionLink("Edit", "Edit", new { id = item.CustomerID }) |
-                                                        @Html.ActionLink("Details", "Details", new { id = item.CustomerID }) |
-                                                        @Html.ActionLink("Delete", "Delete", new { id = item.CustomerID })
-                                                    </a>
-                                                </td>
-                                            </tr>
 
-                                        }
-                                    </tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <!-- Phone number -->
+                                            <td>
+                                                <div class="d-flex px-2 py-1">
+                                                    <div class="d-flex flex-column justify-content-center">
+                                                        <h6 class="mb-0 text-sm">@Html.DisplayFor(modelItem => item.NumberPhone)</h6>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <!-- User name -->
+                                            <td>
+                                                <p class="text-xs font-weight-bold mb-0">@Html.DisplayFor(modelItem => item.UserName)</p>
+                                            </td>
+                                            <!-- Password -->
+                                            <td class="align-middle text-center">
+                                                <span class="text-xs font-weight-bold mb-0">@Html.EditorFor(modelItem => item.Password, new { htmlAttributes = new { type = "password" } })</span>
+                                            </td>
+                                            <!-- Status -->
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-xs font-weight-bold">@Html.DisplayFor(modelItem => item.Status)</span>
+                                            </td>
+                                            <!-- Name -->
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-xs font-weight-bold">@Html.DisplayFor(modelItem => item.PersonalDetail.Name)</span>
+                                            </td>
+                                            <!-- Brand -->
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-xs font-weight-bold">@Html.DisplayFor(modelItem => item.Advertisement.Brand)</span>
+                                            </td>
+                                            <!-- Qualification -->
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-xs font-weight-bold">@Html.DisplayFor(modelItem => item.ProfessionalDetail.Qualification)</span>
+                                            </td>
+
+                                            <!-- CRUD -->
+                                            <td class="align-middle">
+                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                                    @Html.ActionLink("Edit", "Edit", new { id = item.CustomerID }) |
+                                                    @Html.ActionLink("Details", "Details", new { id = item.CustomerID }) |
+                                                    @Html.ActionLink("Delete", "Delete", new { id = item.CustomerID })
+                                                </a>
+                                            </td>
+                                        </tr>
+
+                                    }
+
                                 </table>
                             </div>
                         </div>
@@ -277,8 +280,8 @@
                                 <script>document.write(new Date().getFullYear())</script>,
                                 design by
                                 <span style="font-weight: bold">@Html.ActionLink("Team", "Index", "Home")</span>
-                             </div>
-                        </div>                       
+                            </div>
+                        </div>
                     </div>
                 </div>
             </footer>
@@ -290,7 +293,7 @@
         <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
             <i class="material-icons py-2">settings</i>
         </a>
-        <div class="card shadow-lg">
+        <div class="card shadow-lg">        
             <div class="card-header pb-0 pt-3">
                 <div class="float-start">
                     <h5 class="mt-3 mb-0">Material UI Configurator</h5>
@@ -360,16 +363,19 @@
         </div>
     </div>
     <!--   Core JS Files   -->
-    @Scripts.Render("~/Content/SMS_online/Login/js/core/popper.min.js")
-    @Scripts.Render("~/Content/SMS_online/Login/js/core/bootstrap.min.js")
-    @Scripts.Render("~/Content/SMS_online/Login/js/plugins/perfect-scrollbar.min.js")
-    @Scripts.Render("~/Content/SMS_online/Login/js/plugins/smooth-scrollbar.min.js")
-    @Scripts.Render("~/Content/SMS_online/Login/js/plugins/chartjs.min.js")    
-   
+    @section Scripts
+    {
+
+        <script src="~/Content/SMS_online/Login/js/core/popper.min.js"></script>
+        <script src="~/Content/SMS_online/Login/js/core/bootstrap.min.js"></script>
+        <script src="~/Content/SMS_online/Login/js/plugins/perfect-scrollbar.min.js"></script>
+        <script src="~/Content/SMS_online/Login/js/plugins/smooth-scrollbar.min.js"></script>
+        <script src="~/Content/SMS_online/Login/js/plugins/chartjs.min.js"></script>
+    }
+    
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
-        if (win && document.querySelector('#sidenav-scrollbar'))
-        {
+        if (win && document.querySelector('#sidenav-scrollbar')) {
             var options =
             {
                 damping: '0.5'
@@ -379,7 +385,7 @@
 
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    
     <script src="~/Content/SMS_online/Login/js/material-dashboard.min.js?v=3.0.0"></script>
 </body>
 
